@@ -1,2 +1,48 @@
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
+
+:root {
+  --blue: rgba(33,41,71, .7);
+}
+
+.hero-section {
+  background: linear-gradient(var(--blue), var(--blue)) ,url('https://images.unsplash.com/photo-1543248939-4296e1fea89b?q=80&w=1474&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center;
+  background-size: cover;
+  color: #fff;
+  text-align: center;
+  padding: 100px 0;
+  height: 80vh;
+}
+.hero-section .container {
+  text-align: center;
+  vertical-align: middle;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.hero-section .container h1 {
+  font-size: 3.5rem;
+  font-weight: bold;
+}
+.hero-section .container p {
+  font-size: 1.6rem;
+  width: 60%;
+  margin: 20px auto 0 auto;
+}
+/* Features Section Styles */
+.features-section {
+  padding: 50px 0;
+}
+.card {
+  border: none;
+  transition: transform 0.3s;
+}
+.card:hover {
+  transform: translateY(-10px);
+}
+.card img {
+  height: 350px;
+  object-fit: cover;
+}
