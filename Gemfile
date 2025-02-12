@@ -69,3 +69,5 @@ gem 'cssbundling-rails'
 
 
 gem "devise", "~> 4.9"
+
+gem "cancancan", "~> 3.6"
