@@ -1,4 +1,5 @@
 class BorrowingsController < ApplicationController
+  before_action :set_borrowing, only: [:return]
   def index
     @borrowings = current_user.borrowings.includes(:book)
   end
@@ -18,7 +19,16 @@ class BorrowingsController < ApplicationController
     end
   end
 
+  def return
+    @borrowing.return_book
+    redirect_to borrowings_path, notice: 'Book was successfully returned.'
+  end
+
   private
+
+  def set_borrowing
+    @borrowing = Borrowing.find(params[:id])
+  end
 
   def borrowing_params
     params.require(:borrowing).permit(:book_id)

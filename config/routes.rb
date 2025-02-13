@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :borrowings, only: [:index, :new, :create]
+  resources :borrowings, only: [:index, :new, :create] do
+    member do
+      patch :return
+    end
+  end
   resources :books
   devise_for :users
   root "home#index"

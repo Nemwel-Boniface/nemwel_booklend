@@ -3,6 +3,11 @@ class Borrowing < ApplicationRecord
   belongs_to :user
   belongs_to :book
 
+  def return_book
+    book.update(available: true)
+    destroy
+  end
+
   # Call backs
   before_create :set_due_date
 
