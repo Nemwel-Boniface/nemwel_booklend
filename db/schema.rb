@@ -48,6 +48,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_13_093611) do
     t.string "isbn"
     t.text "description"
     t.string "cover_photo"
+    t.boolean "available", default: true
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

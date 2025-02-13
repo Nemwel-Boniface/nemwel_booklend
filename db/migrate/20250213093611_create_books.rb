@@ -6,6 +6,7 @@ class CreateBooks < ActiveRecord::Migration[8.0]
       t.string :isbn
       t.text :description
       t.string :cover_photo
+      t.boolean :available, default: true
       t.references :user, null: false, foreign_key: true
 
       t.timestamps
