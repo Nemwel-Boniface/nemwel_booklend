@@ -1,2 +1,33 @@
-<h1>Borrowings#index</h1>
-<p>Find me in app/views/borrowings/index.html.erb</p>
+<section class="container">
+  <h1>Your Borrowed Books</h1>
+
+  <div class="d-flex justify-content-end mb-3">
+    <%= link_to 'Borrow a New Book', new_borrowing_path, class: 'btn btn-primary' %>
+  </div>
+
+  <% if @borrowings.any? %>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Due Date</th>
+          <th>Time Remaining</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @borrowings.each do |borrowing| %>
+          <tr>
+            <td><%= borrowing.book.title %></td>
+            <td><%= borrowing.due_date.strftime('%B %d, %Y') %></td>
+            <td>
+              <% time_remaining = distance_of_time_in_words(Time.now, borrowing.due_date) %>
+              <%= borrowing.due_date.future? ? "#{time_remaining} remaining" : "#{time_remaining} overdue" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <p>You have not borrowed any books.</p>
+  <% end %>
+</section>

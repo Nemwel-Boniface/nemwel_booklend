@@ -1,6 +1,6 @@
 class BorrowingsController < ApplicationController
   def index
-    @borrowing = current_user.borrowings.includes(:book)
+    @borrowings = current_user.borrowings.includes(:book)
   end
 
   def new
