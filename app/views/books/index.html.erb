@@ -1,2 +1,30 @@
-<h1>Books#index</h1>
-<p>Find me in app/views/books/index.html.erb</p>
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h1>Books</h1>
+    <%= link_to 'New Book', new_book_path, class: 'btn btn-primary' %>
+  </div>
+
+  <div class="row">
+    <% if @books.empty?%>
+      <h2>There are no created books at the moment. Please create some books first.</h2>
+    <% else %>
+      <% @books.each do |book| %>
+        <div class="col-12 col-sm-6 col-lg-3 mb-4">
+          <div class="card h-100">
+            <% if book.cover_photo.present? %>
+              <%= image_tag book.cover_photo, class: 'card-img-top', alt: "#{book.title} cover" %>
+            <% else %>
+              <%= image_tag 'default_cover.jpg', class: 'card-img-top', alt: 'Default cover' %>
+            <% end %>
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title"><%= book.title %></h5>
+              <p class="card-text"><strong>Author:</strong> <%= book.author %></p>
+              <p class="card-text"><strong>ISBN:</strong> <%= book.isbn %></p>
+              <%= link_to 'View Details', book_path(book), class: 'btn btn-outline-primary mt-auto' %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
