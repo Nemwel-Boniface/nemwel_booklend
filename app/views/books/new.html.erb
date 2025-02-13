@@ -1,0 +1,43 @@
+<div class="container mt-5">
+  <div class="row">
+    <!-- Left Image Section -->
+    <div class="col-md-6 d-none d-md-block">
+      <img src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Library Image" class="img-fluid h-100">
+    </div>
+
+    <!-- Right Form Section -->
+    <div class="col-12 col-md-6">
+      <h2>Create New Book</h2>
+      <%= form_with(model: @book, local: true) do |f| %>
+        <div class="form-group">
+          <%= f.label :title %>
+          <%= f.text_field :title, class: "form-control", required: true %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :author %>
+          <%= f.text_field :author, class: "form-control", required: true %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :isbn %>
+          <%= f.text_field :isbn, class: "form-control", required: true %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :description %>
+          <%= f.text_area :description, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :cover_photo, "Cover Photo URL" %>
+          <%= f.file_field :cover_photo, class: "form-control" %>
+        </div>
+
+        <div class="form-group mt-3">
+          <%= f.submit "Create Book", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

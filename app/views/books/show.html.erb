@@ -1,0 +1,31 @@
+<div class="container mt-5">
+  <!-- Book Cover Image -->
+  <% if @book.cover_photo.attached? %>
+  <div class="mb-4">
+    <%= image_tag @book.cover_photo, class: 'img-fluid', alt: "#{@book.title} cover" %>
+  </div>
+<% else %>
+  <div class="mb-4">
+    <%= image_tag 'https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=1498&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', class: 'img-fluid custom-height', alt: 'Default cover' %>
+  </div>
+<% end %>
+
+
+  <!-- Book Details -->
+  <div class="card">
+    <div class="card-body">
+      <h1 class="card-title"><%= @book.title %></h1>
+      <p class="card-text"><strong>Author:</strong> <%= @book.author %></p>
+      <p class="card-text"><strong>ISBN:</strong> <%= @book.isbn %></p>
+      <p class="card-text"><strong>Description:</strong> <%= @book.description %></p>
+      <p class="card-text">
+        <strong>Availability:</strong>
+        <% if @book.available? %>
+          <span class="text-success">Available for lending</span>
+        <% else %>
+          <span class="text-danger">Not available for lending</span>
+        <% end %>
+      </p>
+    </div>
+  </div>
+</div>
