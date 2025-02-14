@@ -1,12 +1,18 @@
 <div class="container mt-4">
   <div class="d-flex justify-content-between align-items-center mb-3">
-    <h1>Books</h1>
-    <%= link_to 'New Book', new_book_path, class: 'btn btn-primary' %>
+    <h1>Available Books</h1>
+    <% if current_user.admin? %>
+      <%= link_to 'New Book', new_book_path, class: 'btn btn-primary' %>
+    <% end %>
   </div>
 
   <div class="row">
     <% if @books.empty?%>
-      <h2>There are no created books at the moment. Please create some books first.</h2>
+      <% if current_user.admin? %>
+        <h2>There are no created books at the moment. Please create some books first.</h2>
+      <% else %>
+        <h2>There are no created books at the moment. Kindly contact admin for support.</h2>
+      <% end %>
     <% else %>
       <% @books.each do |book| %>
         <div class="col-12 col-sm-6 col-lg-3 mb-4">
@@ -20,6 +26,14 @@
               <h5 class="card-title"><%= book.title %></h5>
               <p class="card-text"><strong>Author:</strong> <%= book.author %></p>
               <p class="card-text"><strong>ISBN:</strong> <%= book.isbn %></p>
+              <p class="card-text">
+                <strong>Availability:</strong>
+                <% if book.available? %>
+                  <span class="text-success">Available for lending</span>
+                <% else %>
+                  <span class="text-danger">Not available for lending</span>
+                <% end %>
+              </p>
               <%= link_to 'View Details', book_path(book), class: 'btn btn-outline-primary mt-auto' %>
             </div>
           </div>

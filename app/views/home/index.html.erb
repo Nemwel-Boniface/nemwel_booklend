@@ -50,7 +50,9 @@
 <section class="container mt-5">
   <div class="d-flex justify-content-between align-items-center mb-4">
     <h2>Explore Books</h2>
-    <%= link_to 'See all books', books_path, class: 'btn btn-primary' %>
+    <%if current_user %>
+      <%= link_to 'See all books', books_path, class: 'btn btn-primary' %>
+    <% end %>
   </div>
   <div class="row">
     <% if @books.empty? %>
@@ -70,6 +72,14 @@
               <h5 class="card-title"><%= book.title %></h5>
               <p class="card-text"><strong>Author:</strong> <%= book.author %></p>
               <p class="card-text"><strong>ISBN:</strong> <%= book.isbn %></p>
+              <p class="card-text">
+                <strong>Availability:</strong>
+                <% if book.available? %>
+                  <span class="text-success">Available for lending</span>
+                <% else %>
+                  <span class="text-danger">Not available for lending</span>
+                <% end %>
+              </p>
               <%= link_to 'View Details', book_path(book), class: 'btn btn-outline-primary mt-auto' %>
             </div>
           </div>
