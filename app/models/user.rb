@@ -7,6 +7,11 @@ class User < ApplicationRecord
   # Call backs
   after_create :assign_as_admin
 
+  # Validations
+  validates :username, presence: true, uniqueness: true
+  validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
+  validates :password, length: { minimum: 6 }, if: :password_required?
+  validates :bio, length: { maximum: 500 }
 
   # Associations
   has_one_attached :photo
@@ -23,6 +28,10 @@ class User < ApplicationRecord
   end
 
   private
+
+  def password_required?
+    password.present? || password_confirmation.present?
+  end
 
   def assign_as_admin
     if User.count == 1
