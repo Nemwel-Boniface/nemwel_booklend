@@ -27,7 +27,7 @@
             <div class="card-body">
               <h5 class="card-title">Borrow Books</h5>
               <p class="card-text">Easily borrow books with a click and enjoy reading.</p>
-              <a href="#" class="btn btn-primary">Borrow Now</a>
+              <%= link_to 'Borrow book', borrowings_path, class: 'btn btn-primary' %>
             </div>
           </div>
         </div>
@@ -38,7 +38,7 @@
             <div class="card-body">
               <h5 class="card-title">Your Borrowed Books</h5>
               <p class="card-text">Keep track of the books you've borrowed and their due dates.</p>
-              <a href="#" class="btn btn-primary">View Your Books</a>
+              <%= link_to 'View Your Books', borrowings_path, class: 'btn btn-primary' %>
             </div>
           </div>
         </div>

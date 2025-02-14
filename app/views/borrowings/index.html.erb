@@ -1,0 +1,40 @@
+<section class="container">
+  <h1>Your Borrowed Books</h1>
+
+  <div class="d-flex justify-content-end mb-3">
+    <%= link_to 'Borrow a New Book', new_borrowing_path, class: 'btn btn-primary' %>
+  </div>
+
+  <% if @borrowings.any? %>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Due Date</th>
+          <th>Time Remaining</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @borrowings.each do |borrowing| %>
+          <tr>
+            <td><%= link_to borrowing.book.title, book_path(borrowing.book), class: 'text-decoration-none' %></td>
+            <td><%= borrowing.due_date.strftime('%B %d, %Y') %></td>
+            <td>
+              <% time_remaining = distance_of_time_in_words(Time.now, borrowing.due_date) %>
+              <%= borrowing.due_date.future? ? "#{time_remaining} remaining" : "#{time_remaining} overdue" %>
+            </td>
+            <td>
+              <%= form_with model: borrowing, url: return_borrowing_path(borrowing), method: :patch, local: true do |form| %>
+                <%= form.submit 'Return', class: 'btn btn-danger', data: { confirm: 'Are you sure you want to return this book?' } %>
+              <% end %>
+            </td>
+
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <p>You have not borrowed any books.</p>
+  <% end %>
+</section>

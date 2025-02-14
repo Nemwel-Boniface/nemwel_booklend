@@ -7,4 +7,6 @@ class User < ApplicationRecord
   # Associations
   has_one_attached :photo
   has_many :books, dependent: :destroy
+  has_many :borrowings
+  has_many :borrowed_books, through: :borrowings, source: :book
 end
