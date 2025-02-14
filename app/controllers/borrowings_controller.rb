@@ -1,4 +1,5 @@
 class BorrowingsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_borrowing, only: [:return]
   def index
     @borrowings = current_user.borrowings.includes(:book)

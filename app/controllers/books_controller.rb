@@ -1,4 +1,6 @@
 class BooksController < ApplicationController
+  before_action :authenticate_user!
+  before_action :authorize_admin!, only: [:new, :create]
   before_action :set_book, only: %i[show edit update destroy]
   def index
     @books = Book.all
@@ -46,5 +48,9 @@ class BooksController < ApplicationController
 
   def book_params
     params.require(:book).permit(:title, :author, :isbn, :description, :cover_photo, :available)
+  end
+
+  def authorize_admin!
+    redirect_to(root_path, alert: 'Access denied.') unless current_user.admin?
   end
 end
