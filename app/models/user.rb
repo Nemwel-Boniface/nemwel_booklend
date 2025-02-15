@@ -8,6 +8,7 @@ class User < ApplicationRecord
   after_create :assign_as_admin
 
   # Validations
+  validates :bio, :mobile, presence: true
   validates :username, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :password, length: { minimum: 6 }, if: :password_required?
