@@ -9,6 +9,5 @@ class Book < ApplicationRecord
   validates :title, presence: true
   validates :author, presence: true
   validates :isbn, presence: true, uniqueness: true
-  validates :published_at, presence: true
   validates :description, length: { maximum: 1000 }
 end
