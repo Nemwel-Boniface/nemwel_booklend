@@ -82,17 +82,27 @@ test:
 # Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full overview on how database connection configuration can be specified.
 #
+# production:
+#   <<: *default
+#   url: <%= ENV["DATABASE_URL"] %>
+#   database: nemwel_booklend_production
+#   username: nemwel_booklend
+#   password: <%= ENV["NEMWEL_BOOKLEND_DATABASE_PASSWORD"] %>
+
+#   cable:
+#     <<: *primary_production
+#     database: nemwel_booklend_production_cable
+#     migrations_paths: db/cable_migrate
+
 production:
   <<: *default
   url: <%= ENV["DATABASE_URL"] %>
-  database: nemwel_booklend_production
-  username: nemwel_booklend
-  password: <%= ENV["NEMWEL_BOOKLEND_DATABASE_PASSWORD"] %>
 
   cable:
-    <<: *primary_production
-    database: nemwel_booklend_production_cable
+    <<: *default
+    url: <%= ENV["DATABASE_URL"] %>
     migrations_paths: db/cable_migrate
+
 
   # primary: &primary_production
   #   <<: *default
