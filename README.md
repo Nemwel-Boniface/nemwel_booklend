@@ -12,6 +12,19 @@ This application will help me practice:
 5. Project deployment making use of [render](https://render.com/) which will host my API application.
 
 
+## Future Features
+
+Development of this application follows a Kanban Board, which helps track tasks across different stages i.e Done, In Progress, In Review, and Pending. You can view the board and stay updated on ongoing improvements through [this GitHub project](https://github.com/users/Nemwel-Boniface/projects/9).
+
+| Feature                | Description                                                                                                  | Status       |
+|------------------------|--------------------------------------------------------------------------------------------------------------|-------------|
+| Simplistic Admin View  | Allow the admin to see stats like total books, users, and active borrowings.                                | Not Started |
+| Penalties for late book return | Handle overdue books by sending automated reminders and applying penalties for late returns.         | Not Started |
+| Notifications Feature  | Automated notifications remind users two days before the return date and enforce penalties for late returns. | Not Started |
+| Book Lend History      | Track previously borrowed books, allowing users to view their lending history and reborrow if needed.       | Started |
+
+
+
 Enjoy!
 
 
