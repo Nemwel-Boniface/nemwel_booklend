@@ -11,9 +11,28 @@ This application will help me practice:
 4. Project documentation by writing a detailed README upon completion to help others understand and use my project.
 5. Project deployment making use of [render](https://render.com/) which will host my API application.
 
+## How to test the application
+
+1. Create an account to be able to access the books and borrow resources
+
+https://github.com/user-attachments/assets/26878fe7-cb63-4a7b-a229-1ff410d115b1
+
+2. Once Logged in as the first user, you will be able to create book records
+3. Users in the system with role of "User" Can borrow a book if it is available for lending
+
+https://github.com/user-attachments/assets/9e85265f-78bf-4fdc-ac4f-03e4fdd48254
+
+5. **Note that** the first user in the system will have the role of an admin and will be able to create a book. All other users in the system have the type of "User" and they can only see books available, and borrow and return them.
+
+
+## Video demonstrations
+I created video demos of the application and the links will be as follows:
+1. [Part one ](https://www.loom.com/share/91defaa83fa54a079268018d924bf630?sid=ec9f63d2-62c9-4a55-a693-e91b30123cce)which shows the GitHub Setup and describes the aim of the project.
+2. [Part two](https://www.loom.com/share/1026bd0dcd4d4dcb93e504f6d39c0517?sid=e8e6fa44-3d4b-4023-ac61-189c89131ac3) which shows the working demo live showing user creation, authentication, book creation, book lending and book returning.
+3. [Part three](https://www.loom.com/share/828852ff70254c0dbb2eb6f8e68a9b9b?sid=5ae418b7-6bd4-45b9-894e-e906554dfa6d), shows the code, some interesting features done and shows the results of the test.
+
 
 ## Future Features
-
 Development of this application follows a Kanban Board, which helps track tasks across different stages i.e Done, In Progress, In Review, and Pending. You can view the board and stay updated on ongoing improvements through [this GitHub project](https://github.com/users/Nemwel-Boniface/projects/9).
 
 | Feature                | Description                                                                                                  | Status       |
@@ -29,7 +48,7 @@ Enjoy!
 
 
 # Built With
- - Ruby on Rails
+ - Ruby on Rails V8
  - PostgreSQL
  - Test-driven development
 
@@ -39,13 +58,14 @@ Enjoy!
   2. Ruby Gems
 
 # Getting Started
-To get local copy of the project and run
+To get a local copy of the project and run
 
 1. ``git@github.com:Nemwel-Boniface/nemwel_booklend.git``
 2. ``cd nemwel_booklend``
 3. ``gem install bundler``
 4. ``bundle install``
 5. ``./bin/dev``
+6. You can now access your site through ``http://127.0.0.1:3000/`` 
 
 ## Database Setup
 Setup db
@@ -56,6 +76,22 @@ Setup db
 4. ``rails db:setup``
 5. ``rails db:create``
 6. ``rails db:seed``
+
+## In your database.yml file, ensure you add the credentials as followws in the development and test blocks
+
+```
+development:
+  <<: *default
+  database: nemwel_booklend_development
+  username: nemwel
+  password: root
+
+test:
+  <<: *default
+  database: nemwel_booklend_test
+  username: nemwel
+  password: root
+```
 
 # Tests
 
