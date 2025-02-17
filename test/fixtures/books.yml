@@ -1,17 +1,19 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
-  author: MyString
-  isbn: MyString
-  description: MyText
-  cover_photo: MyString
+  title: "The Mountain is you"
+  author: "Brianna Wiest"
+  isbn: "9780743273565"
+  description: "is a self-help book that delves into the concept of self-sabotage and provides strategies to overcome it. Wiest explores the psychological and emotional roots of self-destructive behaviors, such as fear of failure,"
+  cover_photo: "https://images.unsplash.com/photo-1641716162046-e6fe7ce76818?q=80&w=1335&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  available: true
   user: one
 
 two:
-  title: MyString
-  author: MyString
-  isbn: MyString
-  description: MyText
-  cover_photo: MyString
+  title: "Ikigai"
+  author: "Héctor García "
+  isbn: "9780061120084"
+  description: "explores the Japanese concept of ikigai, which translates to a reason for being. The authors investigate how finding one's ikigai contributes to longevity and happiness, particularly in Okinawa, Japan, known for its high population of centenarians."
+  cover_photo: "https://images.unsplash.com/photo-1504805572947-34fad45aed93?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  available: true
   user: two
